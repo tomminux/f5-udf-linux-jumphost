@@ -1,2 +1,3 @@
-# f5-udf-linux-jumphost
-Ansible playbook to install linux-jumphost in UDF Environment
+# f5-udf-rancher-server
+Ansible playbook to install and manage a Linux Jumphost with KDE Plasma
+

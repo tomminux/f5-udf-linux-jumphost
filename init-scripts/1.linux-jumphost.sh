@@ -19,20 +19,6 @@
 ##
 ## ============================================================================
 
-## ..:: linux-jumphost's configuration checks ::..
-## ----------------------------------------------------------------------------
-
-IFACE_CHECK=$(ifconfig -a | grep "mtu" | awk -F":" '{print $1}' | wc -l)
-if [ "$IFACE_CHECK" -ne "3" ]
-then
-    echo "Something wrong with linux-jumphost's networking configuration in UDF"
-    exit 0
-else
-    echo "linux-jumphost's networking configuration seems OK"
-fi
-
-IFACE_NAME=$(ifconfig -a | grep "mtu" | awk -F":" '{print $1}' | sed '2q;d')
-
 ## ..:: SSH Keys Initialization phase ::..
 ## ----------------------------------------------------------------------------
 
@@ -59,21 +45,3 @@ sudo apt-add-repository "deb http://ppa.launchpad.net/ansible/ansible/ubuntu bio
 DEBIAN_FRONTEND=noninteractive
 sudo apt update
 sudo apt install ansible -y
-
-## ..:: Base system and networking configuration ::..
-## ----------------------------------------------------------------------------
-
-#sudo sh -c 'echo "linux-jumphost" > /etc/hostname'
-
-#cat <<EOF > rc.local
-##!/bin/bash
-#ifconfig $IFACE_NAME 10.1.10.12/24 up
-
-#exit 0
-#EOF
-
-#sudo chown root:root rc.local
-#sudo mv rc.local /etc/.
-#sudo chmod 755 /etc/rc.local
-
-#sudo reboot

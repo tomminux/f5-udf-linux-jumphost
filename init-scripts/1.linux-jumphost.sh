@@ -30,7 +30,8 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.ssh/id*
 sudo sh -c 'cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys'
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-sudo /bin/bash -c 'echo -e "Default1234!\nDefault1234!" | passwd ubuntu'
+sudo /bin/bash -c 'useradd -c "user for XRDP" -d "/home/user" -m -s /bin/bash user'
+sudo /bin/bash -c 'echo -e "user\nuser" | passwd user'
 
 ## ..:: Ubuntu distibution update to latest software releases ::..
 ## ----------------------------------------------------------------------------

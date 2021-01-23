@@ -84,12 +84,12 @@
         state: present
         update_cache: true
 
-    - name: Copying .xsession* ubuntu files
+    - name: Copying .xsession* user files
       copy:
         src: xrdp-files/{{ item }}
         dest: /home/ubuntu
-        owner: ubuntu
-        group: ubuntu
+        owner: user
+        group: user
       with_items:
         - .xsession
         - .xsessionrc

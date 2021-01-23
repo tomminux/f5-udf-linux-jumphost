@@ -94,6 +94,11 @@
         - .xsession
         - .xsessionrc
 
+    - name: Copying startwm.sh file
+      copy:
+        src: xrdp-files/startwm.sh
+        dest: /etc/xrdp
+
     - name: Copying polkit-1 files
       copy:
         src: xrdp-files/{{ item }}

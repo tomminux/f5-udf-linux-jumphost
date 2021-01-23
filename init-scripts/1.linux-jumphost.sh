@@ -30,6 +30,8 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.ssh/id*
 sudo sh -c 'cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys'
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
+sudo /bin/bash -c 'echo -e "Default1234!\nDefault1234!" | passwd ubuntu'
+
 ## ..:: Ubuntu distibution update to latest software releases ::..
 ## ----------------------------------------------------------------------------
 

@@ -1,5 +1,5 @@
 [linux_jumphost]
-linux-jumphost ansible_host=10.1.1.12 secondNetIf_name=eth1 secondNetIf_ip=10.1.10.12 hostname=linux-jumphost
+linux-jumphost ansible_host=10.1.1.7 secondNetIf_name=ens6 secondNetIf_ip=10.1.10.7 hostname=linux-jumphost
 
 [linux_jumphost:vars]
 ansible_python_interpreter=/usr/bin/python3

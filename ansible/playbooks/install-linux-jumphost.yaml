@@ -72,52 +72,52 @@
         update_cache: yes
         upgrade: dist
 
-    - name: Installing KDE Desktop through apt
-      apt:
-        name: kubuntu-desktop
-        state: present
-        update_cache: true
+#    - name: Installing KDE Desktop through apt
+#      apt:
+#        name: kubuntu-desktop
+#        state: present
+#        update_cache: true
 
-    - name: Installing XRDP Desktop through apt
-      apt:
-        name: xrdp
-        state: present
-        update_cache: true
+    # - name: Installing XRDP Desktop through apt
+    #   apt:
+    #     name: xrdp
+    #     state: present
+    #     update_cache: true
 
-    - name: Copying .xsession* user files
-      copy:
-        src: xrdp-files/{{ item }}
-        dest: /home/ubuntu
-        owner: user
-        group: user
-      with_items:
-        - .xsession
-        - .xsessionrc
+    # - name: Copying .xsession* user files
+    #   copy:
+    #     src: xrdp-files/{{ item }}
+    #     dest: /home/ubuntu
+    #     owner: user
+    #     group: user
+    #   with_items:
+    #     - .xsession
+    #     - .xsessionrc
 
-    - name: Copying startwm.sh file
-      copy:
-        src: xrdp-files/startwm.sh
-        dest: /etc/xrdp
+    # - name: Copying startwm.sh file
+    #   copy:
+    #     src: xrdp-files/startwm.sh
+    #     dest: /etc/xrdp
 
-    - name: Copying polkit-1 files
-      copy:
-        src: xrdp-files/{{ item }}
-        dest: /etc/polkit-1/localauthority/50-local.d
-      with_items:
-        - xrdp-NetworkManager.pkla
-        - xrdp-packagekit.pkla
+    # - name: Copying polkit-1 files
+    #   copy:
+    #     src: xrdp-files/{{ item }}
+    #     dest: /etc/polkit-1/localauthority/50-local.d
+    #   with_items:
+    #     - xrdp-NetworkManager.pkla
+    #     - xrdp-packagekit.pkla
 
-    - name: Restart service XRDP
-      service:
-        name: xrdp
-        state: restarted
+    # - name: Restart service XRDP
+    #   service:
+    #     name: xrdp
+    #     state: restarted
 
-    - name: Reboot linux-jumphost and wait for it to restart
-      reboot:
-        msg: "Reboot initiated by Ansible"
-        connect_timeout: 5
-        reboot_timeout: 600
-        pre_reboot_delay: 0
-        post_reboot_delay: 30
-        test_command: whoami
+    # - name: Reboot linux-jumphost and wait for it to restart
+    #   reboot:
+    #     msg: "Reboot initiated by Ansible"
+    #     connect_timeout: 5
+    #     reboot_timeout: 600
+    #     pre_reboot_delay: 0
+    #     post_reboot_delay: 30
+    #     test_command: whoami
 

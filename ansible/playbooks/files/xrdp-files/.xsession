@@ -1,1 +1,2 @@
-startkde
+#startkde
+startxfce4
